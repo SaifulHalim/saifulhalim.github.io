@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gallery Foto dan Video Bandung | Saiful Halim</title>
+
+  <meta name="description" content="Gallery karya fotografi dan videografi Saiful Halim di Bandung. Dokumentasi event, wedding, corporate, brand, dan street photography Braga.">
+
+  <link rel="canonical" href="https://saifulhalim.github.io/gallery.html">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS utama -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS khusus gallery -->
+  <link rel="stylesheet" href="gallery.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="gallery-nav">
+    <a href="index.html" class="logo">Saiful Halim</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="https://wa.me/6281224833870" target="_blank" rel="noopener">
+        Contact
+      </a>
+    </div>
+  </nav>
+
+  <!-- GALLERY HEADER -->
+  <header class="gallery-header">
+    <div>
+      <p class="gallery-label">VISUAL ARCHIVE</p>
+
+      <h1>Gallery</h1>
+
+      <p class="gallery-intro">
+        Kumpulan karya foto dan dokumentasi visual
+        Saiful Halim dari berbagai momen dan cerita.
+      </p>
+    </div>
+  </header>
+
+  <!-- GALLERY CONTENT -->
+  <main class="gallery-container">
+
+    <div class="gallery-heading">
+      <h2>Selected Works</h2>
+      <p>Photography & Visual Documentation</p>
+    </div>
+
+    <!-- FILTER -->
+    <div class="gallery-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="event">Event</button>
+      <button class="filter-btn" data-filter="wedding">Wedding</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+      <button class="filter-btn" data-filter="street">Street Braga</button>
+    </div>
+
+    <!-- PHOTO GRID -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item" data-category="event">
+        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678"
+             alt="Dokumentasi event"
+             loading="lazy">
+        <div class="gallery-overlay">
+          <span>Event</span>
+          <h3>Event Documentation</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="wedding">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552"
+             alt="Dokumentasi wedding"
+             loading="lazy">
+        <div class="gallery-overlay">
+          <span>Wedding</span>
+          <h3>Wedding Moment</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="corporate">
+        <img src="https://images.unsplash.com/photo-1511578563454-1a4e9c8f9f4f"
+             alt="Dokumentasi corporate"
+             loading="lazy">
+        <div class="gallery-overlay">
+          <span>Corporate</span>
+          <h3>Corporate Event</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="street">
+        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455"
+             alt="Street photography"
+             loading="lazy">
+        <div class="gallery-overlay">
+          <span>Street Braga</span>
+          <h3>Urban Stories</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="event">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30"
+             alt="Dokumentasi acara"
+             loading="lazy">
+        <div class="gallery-overlay">
+          <span>Event</span>
+          <h3>Live Experience</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="street">
+        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455"
+             alt="Urban photography"
+             loading="lazy">
+        <div class="gallery-overlay">
+          <span>Street Braga</span>
+          <h3>City Portrait</h3>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- CONTACT -->
+  <section class="gallery-cta">
+    <h2>Let's Create Something Meaningful</h2>
+
+    <p>
+      Dokumentasi foto dan video untuk berbagai momen,
+      acara, dan kebutuhan visual.
+    </p>
+
+    <a href="https://wa.me/6281224833870"
+       class="btn"
+       target="_blank"
+       rel="noopener">
+      Konsultasi WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Saiful Halim | Photography & Videography
+  </footer>
+
+  <!-- FILTER SCRIPT -->
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        galleryItems.forEach(item => {
+          const category = item.dataset.category;
+
+          if (filter === "all" || category === filter) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+
+      });
+    });
+  </script>
+
+</body>
+</html>
