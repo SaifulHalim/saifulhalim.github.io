@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 20px 8%;
   background: #080808;
 }
@@ -43,11 +42,9 @@
 
 .gallery-header {
   min-height: 350px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-align: center;
   padding: 60px 20px;
 
@@ -87,13 +84,13 @@
 
 .gallery-container {
   max-width: 1300px;
-  padding: 80px 30px;
+  padding: 60px 30px;
   margin: auto;
 }
 
 .gallery-heading {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .gallery-heading h2 {
@@ -115,22 +112,18 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
-
-  margin-bottom: 40px;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
 .filter-btn {
   background: transparent;
   color: #aaa;
-
   border: 1px solid #333;
   border-radius: 30px;
-
-  padding: 10px 22px;
+  padding: 9px 18px;
   font-family: inherit;
-  font-size: 13px;
-
+  font-size: 12px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -143,23 +136,23 @@
 }
 
 
-
 /* =========================
-   GALLERY GRID - SMALLER
+   GALLERY GRID
+   DESKTOP: 6 FOTO
 ========================= */
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .gallery-item {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   background: #1a1a1a;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -168,51 +161,13 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
 .gallery-item:hover img {
   transform: scale(1.05);
 }
 
-/* =========================
-   RESPONSIVE TABLET
-========================= */
-
-@media (max-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-}
-
-/* =========================
-   RESPONSIVE MOBILE
-========================= */
-
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .gallery-item {
-    aspect-ratio: 4 / 3;
-  }
-
-  .gallery-overlay {
-    opacity: 1;
-    padding: 10px;
-  }
-
-  .gallery-overlay h3 {
-    font-size: 12px;
-  }
-
-  .gallery-overlay span {
-    font-size: 9px;
-  }
-}
 
 /* =========================
    IMAGE OVERLAY
@@ -226,7 +181,7 @@
   flex-direction: column;
   justify-content: flex-end;
 
-  padding: 25px;
+  padding: 10px;
 
   background: linear-gradient(
     transparent 40%,
@@ -242,15 +197,15 @@
 }
 
 .gallery-overlay span {
-  font-size: 11px;
-  letter-spacing: 2px;
+  font-size: 10px;
+  letter-spacing: 1px;
   color: #ccc;
   text-transform: uppercase;
 }
 
 .gallery-overlay h3 {
-  font-size: 18px;
-  margin-top: 5px;
+  font-size: 13px;
+  margin-top: 4px;
 }
 
 
@@ -261,7 +216,7 @@
 .gallery-cta {
   text-align: center;
   background: #111;
-  padding: 80px 20px;
+  padding: 70px 20px;
 }
 
 .gallery-cta h2 {
@@ -276,7 +231,23 @@
 
 
 /* =========================
-   MOBILE RESPONSIVE
+   TABLET
+   4 FOTO PER BARIS
+========================= */
+
+@media (max-width: 1024px) {
+
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   3 FOTO PER BARIS
 ========================= */
 
 @media (max-width: 768px) {
@@ -291,6 +262,10 @@
     gap: 20px;
   }
 
+  .gallery-header {
+    min-height: 280px;
+  }
+
   .gallery-header h1 {
     font-size: 42px;
   }
@@ -300,38 +275,57 @@
   }
 
   .gallery-container {
-    padding: 50px 15px;
+    padding: 40px 12px;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .gallery-overlay {
     opacity: 1;
-    padding: 12px;
+    padding: 6px;
   }
 
   .gallery-overlay h3 {
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .gallery-overlay span {
-    font-size: 9px;
+    font-size: 8px;
+  }
+
+  .gallery-cta {
+    padding: 50px 15px;
+  }
+
+  .gallery-cta h2 {
+    font-size: 22px;
   }
 
 }
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media (max-width: 480px) {
 
   .gallery-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
   }
 
   .filter-btn {
-    padding: 8px 14px;
-    font-size: 11px;
+    padding: 7px 12px;
+    font-size: 10px;
+  }
+
+  .gallery-heading h2 {
+    font-size: 24px;
   }
 
 }
+
