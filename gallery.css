@@ -1,0 +1,305 @@
+
+/* =========================
+   GALLERY NAVIGATION
+========================= */
+
+.gallery-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 8%;
+  background: #080808;
+}
+
+.logo {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+}
+
+
+/* =========================
+   GALLERY HEADER
+========================= */
+
+.gallery-header {
+  min-height: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 60px 20px;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.75)
+    ),
+    url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4')
+    center / cover no-repeat;
+}
+
+.gallery-label {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.gallery-header h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.gallery-intro {
+  max-width: 600px;
+  margin: 15px auto 0;
+  color: #ccc;
+  font-size: 15px;
+}
+
+
+/* =========================
+   GALLERY CONTAINER
+========================= */
+
+.gallery-container {
+  max-width: 1300px;
+  padding: 80px 30px;
+  margin: auto;
+}
+
+.gallery-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.gallery-heading h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.gallery-heading p {
+  color: #888;
+  font-size: 14px;
+}
+
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+
+.gallery-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background: transparent;
+  color: #aaa;
+
+  border: 1px solid #333;
+  border-radius: 30px;
+
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 13px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+
+/* =========================
+   GALLERY GRID
+========================= */
+
+.gallery-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+
+  aspect-ratio: 4 / 5;
+  background: #1a1a1a;
+
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   IMAGE OVERLAY
+========================= */
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 25px;
+
+  background: linear-gradient(
+    transparent 40%,
+    rgba(0, 0, 0, 0.85)
+  );
+
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.gallery-overlay h3 {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+
+/* =========================
+   GALLERY CTA
+========================= */
+
+.gallery-cta {
+  text-align: center;
+  background: #111;
+  padding: 80px 20px;
+}
+
+.gallery-cta h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.gallery-cta p {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .gallery-nav {
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .gallery-header h1 {
+    font-size: 42px;
+  }
+
+  .gallery-intro {
+    font-size: 13px;
+  }
+
+  .gallery-container {
+    padding: 50px 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .gallery-overlay {
+    opacity: 1;
+    padding: 12px;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 13px;
+  }
+
+  .gallery-overlay span {
+    font-size: 9px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+}
