@@ -47,12 +47,8 @@
   justify-content: center;
   text-align: center;
   padding: 60px 20px;
-
   background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.75),
-      rgba(0, 0, 0, 0.75)
-    ),
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4')
     center / cover no-repeat;
 }
@@ -136,34 +132,32 @@
 }
 
 
-
 /* =========================
-   GALLERY GRID - COMPACT
+   GALLERY GRID
 ========================= */
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 8px;
-
-  max-width: 950px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .gallery-item {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   background: #1a1a1a;
-  border-radius: 3px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .gallery-item img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform 0.4s ease;
 }
 
@@ -171,7 +165,10 @@
   transform: scale(1.05);
 }
 
-/* OVERLAY */
+
+/* =========================
+   OVERLAY
+========================= */
 
 .gallery-overlay {
   position: absolute;
@@ -179,13 +176,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 7px;
-
+  padding: 12px;
   background: linear-gradient(
     transparent 30%,
-    rgba(0,0,0,0.8)
+    rgba(0, 0, 0, 0.8)
   );
-
   opacity: 0;
   transition: 0.3s;
 }
@@ -195,85 +190,69 @@
 }
 
 .gallery-overlay span {
-  font-size: 9px;
+  font-size: 11px;
   color: #ccc;
 }
 
 .gallery-overlay h3 {
-  font-size: 11px;
+  font-size: 14px;
   margin-top: 3px;
 }
 
-/* TABLET */
+
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 1024px) {
   .gallery-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    max-width: 800px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 850px;
   }
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
+  .gallery-container {
+    padding: 40px 15px;
+  }
+
   .gallery-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 5px;
-    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .gallery-overlay {
     opacity: 1;
-    padding: 4px;
+    padding: 8px;
   }
 
   .gallery-overlay h3 {
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .gallery-overlay span {
-    font-size: 7px;
+    font-size: 9px;
+  }
+
+  .gallery-header h1 {
+    font-size: 42px;
   }
 }
 
-/* SMALL MOBILE */
+
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media (max-width: 480px) {
   .gallery-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
   }
 }
 
-
-
-/* FIX UKURAN FOTO CONTOH */
-
-.gallery-grid {
-  max-width: 750px !important;
-  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-  gap: 8px;
-  margin: 0 auto;
-}
-
-.gallery-item {
-  aspect-ratio: 1 / 1 !important;
-  max-height: 120px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-
-  .gallery-item {
-    max-height: 100px;
-  }
-}
